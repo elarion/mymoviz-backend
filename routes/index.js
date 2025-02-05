@@ -17,6 +17,10 @@ router.get('/movies', async (req, res, next) => {
 
         const data = await response.json();
 
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
         return res.json({success : true, movies : data.results});
     } catch (error) {
         console.error("Erreur lors de l’obtention du token :", error);
