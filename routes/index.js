@@ -17,7 +17,7 @@ router.get('/movies', async (req, res, next) => {
 
         const data = await response.json();
 
-        return res.json({success : true, movies : data});
+        return res.json({success : true, movies : data.results});
     } catch (error) {
         console.error("Erreur lors de l’obtention du token :", error);
         return res.json({success : false, message : error.message});
